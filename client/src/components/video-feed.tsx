@@ -104,7 +104,7 @@ export default function VideoFeed({
               </button>
               
               <button 
-                className="px-4 py-2 rounded-md bg-primary-500 text-white hover:bg-primary-600 transition-colors flex items-center"
+                className="px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 transition-colors flex items-center"
                 onClick={onToggleCamera}
               >
                 <span className="material-icons mr-1">{isActive ? "stop" : "play_arrow"}</span>
