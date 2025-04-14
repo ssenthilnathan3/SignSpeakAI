@@ -51,27 +51,33 @@ export default function InterpretationResults({
           {interpretations.length === 0 ? (
             <div className="h-full flex flex-col items-center justify-center text-center text-gray-500 dark:text-gray-400">
               <span className="material-icons text-4xl mb-3">sign_language</span>
-              <p className="text-lg">No interpretation yet</p>
-              <p className="text-sm mt-1">Sign language will be interpreted as you sign</p>
+              <p className="text-lg">No ASL interpretation yet</p>
+              <p className="text-sm mt-1">American Sign Language will be interpreted into complete sentences as you sign</p>
+              <p className="text-sm mt-2 italic">Best for standard ASL signs and basic sentences</p>
             </div>
           ) : (
             <div>
               {interpretations.map((item) => (
                 <div key={item.id} className="mb-4 pb-3 border-b border-gray-100 dark:border-gray-600 last:border-0">
                   <div className="flex justify-between items-start">
-                    <p className="text-gray-900 dark:text-white">{item.text}</p>
-                    <span className="text-xs text-gray-500 dark:text-gray-400">{item.displayTime}</span>
+                    <div className="flex-1 pr-2">
+                      <p className="text-gray-900 dark:text-white text-base leading-relaxed">{item.text}</p>
+                    </div>
+                    <span className="text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">{item.displayTime}</span>
                   </div>
-                  <div className="flex items-center mt-1">
+                  <div className="flex items-center justify-between mt-2">
                     <span className={`text-xs ${getConfidenceLevelClass(getConfidenceLevel(item.confidence))} px-2 py-0.5 rounded`}>
                       {getConfidenceLevel(item.confidence)}
                     </span>
-                    <button 
-                      className="ml-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
-                      onClick={() => onCopyText(item.text)}
-                    >
-                      <span className="material-icons text-sm">content_copy</span>
-                    </button>
+                    <div className="flex space-x-2">
+                      <button 
+                        className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 flex items-center"
+                        onClick={() => onCopyText(item.text)}
+                      >
+                        <span className="material-icons text-sm mr-1">content_copy</span>
+                        <span className="text-xs">Copy</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}

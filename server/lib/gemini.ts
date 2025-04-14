@@ -23,7 +23,7 @@ export async function interpretSignLanguage(
             {
               parts: [
                 {
-                  text: "Interpret the sign language in this image. Respond with ONLY a valid JSON object with these fields: 'text' (the interpreted text) and 'confidence' (a number from 0-100 indicating the confidence level). Do not include any other text or explanation.",
+                  text: "Interpret the American Sign Language (ASL) in this image. Focus on recognizing complete sentences and basic, standard ASL signs. If multiple signs are detected, connect them into a coherent sentence with proper grammar. Respond with ONLY a valid JSON object with these fields: 'text' (the full interpreted sentence) and 'confidence' (a number from 0-100 indicating the confidence level). Do not include any other text or explanation.",
                 },
                 {
                   inline_data: {
@@ -35,8 +35,10 @@ export async function interpretSignLanguage(
             },
           ],
           generationConfig: {
-            temperature: 0.2,
-            maxOutputTokens: 500,
+            temperature: 0.1,
+            maxOutputTokens: 800,
+            topP: 0.8,
+            topK: 40,
           },
         }),
       },
