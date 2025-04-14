@@ -12,7 +12,7 @@ export default function Home() {
   const [settings, setSettings] = useState<WebcamSettings>({
     cameraId: "",
     processingInterval: 1000,
-    confidenceThreshold: 70,
+    confidenceThreshold: 10,
     continuousMode: true,
     audioFeedback: true
   });

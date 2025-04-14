@@ -5,7 +5,7 @@ export async function interpretSignLanguage(
   imageData: string,
 ): Promise<GeminiResponse> {
   try {
-    const apiKey = "AIzaSyChjtkgIP7pC8y7BBR-dK8B6yIhinrO6Bw";
+    const apiKey = "AIzaSyB-1L9DKa3O8Pr0am7VLQp0oyukH5A4fro";
 
     if (!apiKey) {
       throw new Error("Missing GEMINI_API_KEY environment variable");
